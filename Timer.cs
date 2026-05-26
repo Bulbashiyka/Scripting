@@ -2,11 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
+using TMPro;
 
 public class Timer : MonoBehaviour
 {
     public float seconds;
     public int minutes;
+
+    public TextMeshProUGUI timerText;
     // Start is called before the first frame update
     void Start()
     {
@@ -31,5 +35,9 @@ public class Timer : MonoBehaviour
             }
         }
         print(minutes + ":" + seconds);
+
+        int roundSeconds = Mathf.RoundToInt(seconds);
+        timerText.text = minutes + ":" + roundSeconds;
+
     }
 }
